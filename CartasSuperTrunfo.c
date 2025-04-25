@@ -121,5 +121,4 @@ int main()
     printf("Densidade Populacional: Carta %i venceu (%i)\n", cidade1VenceuDensidade ? 1 : 2, cidade1VenceuDensidade);
     printf("PIB per Capita: Carta %i venceu (%i)\n", cidade1VenceuPibPerCapita ? 1 : 2, cidade1VenceuPibPerCapita);
     printf("Super Poder: Carta %i venceu (%i)\n", cidade1VenceuSuperPoder ? 1 : 2, cidade1VenceuSuperPoder);
-    printf("\n");
 }
