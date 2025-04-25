@@ -26,7 +26,7 @@ int main()
     printf("Digite o código da carta (ex: A01):");
     scanf("%s", cidade1.codigoDaCarta); // Lê o código da carta
     printf("Digite o nome da cidade:");
-    getchar();                              // Limpa o buffer do teclado
+    getchar();                              // Limpa o buffer do teclado para eviter bug de input em scanf aceitando espaços
     scanf(" %[^\n]", cidade1.nomeDaCidade); // Lê o nome da cidade (inclui espaços)
     printf("Digite o estado (A-H):");
     scanf(" %c", &cidade1.estado); // Lê o estado
@@ -68,6 +68,7 @@ int main()
     printf("Digite o código da carta (ex: A01): ");
     scanf("%s", cidade2.codigoDaCarta); // Lê o código da carta
     printf("Digite o nome da cidade: ");
+    getchar();                              // Limpa o buffer do teclado para eviter bug de input em scanf aceitando espaços
     scanf(" %[^\n]", cidade2.nomeDaCidade); // Lê o nome da cidade (inclui espaços)
     printf("Digite o estado (A-H): ");
     scanf(" %c", &cidade2.estado); // Lê o estado
