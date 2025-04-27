@@ -19,6 +19,7 @@ int main()
     // Declaração de variáveis
     Cidade cidade1, cidade2;
 
+    // Cadastro da carta 1
     printf("Cadastre a primeira carta!\n");
     printf("\n");
 
@@ -61,7 +62,8 @@ int main()
     printf("PIB per Capita: %.2f\n", cidade1.pibPerCapita);                               // Exibe o PIB per capita com duas casas decimais
     printf("\n");
 
-    printf("Cadastre a segunda carta:\n"); // Exibe o número de pontos turísticos
+    // Cadastro da carta 2
+    printf("Cadastre a segunda carta:\n");
     printf("\n");
 
     // Entrada de dados para a carta 2
@@ -112,13 +114,76 @@ int main()
     int cidade1VenceuPibPerCapita = cidade1.pibPerCapita > cidade2.pibPerCapita;
     int cidade1VenceuSuperPoder = cidade1.superPoder > cidade2.superPoder;
 
+    int empatouPopulacao = cidade1.populacao == cidade2.populacao;
+    int empatouArea = cidade1.area == cidade2.area;
+    int empatouPib = cidade1.pib == cidade2.pib;
+    int empatouPontosTuristicos = cidade1.numeroDePontosTuristicos == cidade2.numeroDePontosTuristicos;
+    int empatouDensidade = cidade1.densidadeDemografica == cidade2.densidadeDemografica;
+    int empatouPibPerCapita = cidade1.pibPerCapita == cidade2.pibPerCapita;
+    int empatouSuperPoder = cidade1.superPoder == cidade2.superPoder;
+
     // Exibir resultados das comparações
     printf("\nComparação de Cartas:\n");
-    printf("População: Carta %i venceu (%i)\n", cidade1VenceuPopulacao ? 1 : 2, cidade1VenceuPopulacao);
-    printf("Área: Carta %i venceu (%i)\n", cidade1VenceuArea ? 1 : 2, cidade1VenceuArea);
-    printf("PIB: Carta %i venceu (%i)\n", cidade1VenceuPib ? 1 : 2, cidade1VenceuPib);
-    printf("Pontos Turísticos: Carta %i venceu (%i)\n", cidade1VenceuPontosTuristicos ? 1 : 2, cidade1VenceuPontosTuristicos);
-    printf("Densidade Populacional: Carta %i venceu (%i)\n", cidade1VenceuDensidade ? 1 : 2, cidade1VenceuDensidade);
-    printf("PIB per Capita: Carta %i venceu (%i)\n", cidade1VenceuPibPerCapita ? 1 : 2, cidade1VenceuPibPerCapita);
-    printf("Super Poder: Carta %i venceu (%i)\n", cidade1VenceuSuperPoder ? 1 : 2, cidade1VenceuSuperPoder);
+    if (empatouPopulacao)
+    {
+        printf("População: Cartas empataram!\n");
+    }
+    else
+    {
+        printf("População: Carta %i venceu (%i)\n", cidade1VenceuPopulacao ? 1 : 0, cidade1VenceuPopulacao);
+    }
+
+    if (empatouArea)
+    {
+        printf("Área: Cartas empataram!\n");
+    }
+    else
+    {
+        printf("Área: Carta %i venceu (%i)\n", cidade1VenceuArea ? 1 : 2, cidade1VenceuArea);
+    }
+
+    if (empatouPib)
+    {
+        printf("PIB: Cartas empataram!\n");
+    }
+    else
+    {
+        printf("PIB: Carta %i venceu (%i)\n", cidade1VenceuPib ? 1 : 2, cidade1VenceuPib);
+    }
+
+    if (empatouPontosTuristicos)
+    {
+        printf("Pontos Turísticos: Cartas empataram!\n");
+    }
+    else
+    {
+        printf("Pontos Turísticos: Carta %i venceu (%i)\n", cidade1VenceuPontosTuristicos ? 1 : 2, cidade1VenceuPontosTuristicos);
+    }
+
+    if (empatouDensidade)
+    {
+        printf("Densidade Populacional: Cartas empataram!\n");
+    }
+    else
+    {
+        printf("Densidade Populacional: Carta %i venceu (%i)\n", cidade1VenceuDensidade ? 1 : 2, cidade1VenceuDensidade);
+    }
+
+    if (empatouPibPerCapita)
+    {
+        printf("PIB per Capta: Cartas empataram!\n");
+    }
+    else
+    {
+        printf("PIB per Capita: Carta %i venceu (%i)\n", cidade1VenceuPibPerCapita ? 1 : 2, cidade1VenceuPibPerCapita);
+    }
+
+    if (empatouSuperPoder)
+    {
+        printf("Super Poder: Cartas empataram!\n");
+    }
+    else
+    {
+        printf("Super Poder: Carta %i venceu (%i)\n", cidade1VenceuSuperPoder ? 1 : 2, cidade1VenceuSuperPoder);
+    }
 }
