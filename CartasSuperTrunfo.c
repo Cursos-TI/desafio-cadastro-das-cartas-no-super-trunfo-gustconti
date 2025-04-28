@@ -203,14 +203,14 @@ void iniciarJogo()
     // Declaração de variáveis
     Cidade cidade1, cidade2;
 
-    printf("\n==================== Cadastro de Cartas ==========================\n");
+    printf("\n======================= Cadastro de Cartas =======================\n");
 
     printf("\n> Cadastre a primeira carta:\n");
     cidade1 = cadastrarCarta(cidade1); // Chama a função para cadastrar a primeira carta
     printf("\n> Cadastre a segunda carta:\n");
     cidade2 = cadastrarCarta(cidade2); // Chama a função para cadastrar a segunda carta
 
-    printf("\n==================== Escolha de Atributos ==========================\n");
+    printf("\n======================= Escolha de Atributos =======================\n");
 
     // Escolher atributos a comparar
     int opcao1, opcao2;
@@ -231,7 +231,7 @@ void iniciarJogo()
     int comparacao2 = compararAtributos(cidade1.atributoSelecionado2, cidade2.atributoSelecionado2);
     int comparacaoSoma = compararAtributos(somaAtributosCidade1, somaAtributosCidade2);
 
-    printf("\n==================== Comparação de Cartas ==========================\n");
+    printf("\n======================= Comparação de Cartas =======================\n");
 
     printf("\nComparando %s: \n", nomeAtributo1);
     if (comparacao1 == -1)
@@ -282,7 +282,8 @@ void iniciarJogo()
 
 void exibirRegras()
 {
-    printf("> Regras do Jogo:\n");
+    printf("\n============================= Regras do Jogo =============================\n");
+    printf("\n");
     printf("1. O jogador cadastra duas cartas.\n");
     printf("2. O jogador escolhe dois atributos a serem comparados.\n");
     printf("3. O jogador com a maior soma dos atributos vence a rodada.\n");
@@ -290,18 +291,18 @@ void exibirRegras()
 
 void sair()
 {
-    printf("Saindo do jogo...\n");
+    printf("\nSaindo do jogo...\n");
     printf("Obrigado por jogar!\n");
-    printf("\n");
 }
 
 void menu()
 {
     int opcao;
-    printf("> Escolha uma opção:\n");
-    printf("1. Iniciar Jogo\n");
+    printf("\n================================ Menu ================================\n");
+    printf("\n1. Iniciar Jogo\n");
     printf("2. Exibir Regras\n");
     printf("3. Sair\n");
+    printf("> Escolha uma opção: ");
     scanf("%d", &opcao);
 
     switch (opcao)
@@ -326,8 +327,9 @@ void menu()
 void main()
 {
     // introducao
-    printf("Super Trunfo!\n");
-    printf("\n");
+    printf("\n=====================================================================\n");
+    printf("=========================== Super Trunfo ============================\n");
+    printf("=====================================================================\n");
 
     menu(); // Chama a função menu para exibir as opções disponíveis
 }
