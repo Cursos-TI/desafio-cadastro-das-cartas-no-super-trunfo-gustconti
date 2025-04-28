@@ -21,75 +21,35 @@ Cidade cadastrarCarta(Cidade cidade)
     // Entrada de dados para a cidade
     printf("Digite o código da carta (ex: A01): ");
     scanf("%3s", cidade.codigoDaCarta); // Limita a entrada a 3 caracteres
-    while (getchar() != '\n'); // Limpa o buffer
+    getchar();                          // Limpa o buffer
 
     printf("Digite o nome da cidade: ");
     scanf(" %[^\n]", cidade.nomeDaCidade); // Lê o nome da cidade (inclui espaços)
-    while (getchar() != '\n'); // Limpa o buffer
+    getchar();                             // Limpa o buffer
 
     printf("Digite o estado (A-H): ");
     scanf(" %c", &cidade.estado); // Lê o estado
-    while (getchar() != '\n'); // Limpa o buffer
+    getchar();                    // Limpa o buffer
 
     printf("Digite a população: ");
-    if (scanf("%d", &cidade.populacao) != 1)
-    {
-        printf("Entrada inválida! Tente novamente.\n");
-        while (getchar() != '\n')
-            ; // Limpa o buffer
-    }
+    scanf("%d", &cidade.populacao);
+    getchar(); // Limpa o buffer
 
     printf("Digite a área (em km²): ");
-    if (scanf("%f", &cidade.area) != 1)
-    {
-        printf("Entrada inválida! Tente novamente.\n");
-        while (getchar() != '\n')
-            ; // Limpa o buffer
-    }
+    scanf("%f", &cidade.area);
+    getchar(); // Limpa o buffer
 
     printf("Digite o PIB: ");
-    if (scanf("%f", &cidade.pib) != 1)
-    {
-        printf("Entrada inválida! Tente novamente.\n");
-        while (getchar() != '\n')
-            ; // Limpa o buffer
-    }
+    scanf("%f", &cidade.pib);
+    getchar(); // Limpa o buffer
 
     printf("Digite o número de pontos turísticos: ");
-    if (scanf("%d", &cidade.numeroDePontosTuristicos) != 1)
-    {
-        printf("Entrada inválida! Tente novamente.\n");
-        while (getchar() != '\n')
-            ; // Limpa o buffer
-    }
+    scanf("%d", &cidade.numeroDePontosTuristicos);
+    getchar(); // Limpa o buffer
 
-    // Cálculo dos atributos derivados
-    if (cidade.area != 0)
-    {
-        cidade.densidadeDemografica = cidade.populacao / cidade.area;
-    }
-    else
-    {
-        cidade.densidadeDemografica = 0;
-    }
-
-    if (cidade.populacao != 0)
-    {
-        cidade.pibPerCapita = cidade.pib / cidade.populacao;
-    }
-    else
-    {
-        cidade.pibPerCapita = 0;
-    }
-
-    if (cidade.densidadeDemografica != 0)
-    {
-        cidade.superPoder = (float)cidade.populacao + cidade.area + cidade.pib + (float)cidade.numeroDePontosTuristicos + cidade.pibPerCapita + 1 / cidade.densidadeDemografica;
-    }
-    else
-    {
-        cidade.superPoder = 0;
-    }
+    cidade.densidadeDemografica = cidade.area != 0 ? cidade.populacao / cidade.area : 0;                                                                                                                              // Cálculo da densidade demográfica
+    cidade.pibPerCapita = cidade.populacao != 0 ? cidade.pib / cidade.populacao : 0;                                                                                                                                  // Cálculo do PIB per capita
+    cidade.superPoder = (float)cidade.populacao + cidade.area + cidade.pib + (float)cidade.numeroDePontosTuristicos + cidade.pibPerCapita + 1 / (cidade.densidadeDemografica != 0 ? cidade.densidadeDemografica : 1); // Cálculo do super poder
 
     // Exibe os dados cadastrados
     printf("\nCarta cadastrada com sucesso:\n");
@@ -266,23 +226,19 @@ void iniciarJogo()
 
     printf("\n============================= Resultado =============================\n");
 
-    if (comparacaoSoma == 1)
-    {
-        printf("\nRESULTADO FINAL: A carta 1 venceu!\n", cidade1.codigoDaCarta);
-    }
-    else if (comparacaoSoma == 0)
-    {
-        printf("\nRESULTADO FINAL: A carta 2 venceu!\n", cidade2.codigoDaCarta);
-    }
-    else
+    if(comparacaoSoma == -1) 
     {
         printf("\nRESULTADO FINAL: Empate!\n");
     }
+    else {
+        printf("\nRESULTADO FINAL: A carta %3s venceu!\n", cidade1.codigoDaCarta);
+    }
+
 }
 
 void exibirRegras()
 {
-    printf("\n============================= Regras do Jogo =============================\n");
+    printf("\n=========================== Regras do Jogo ===========================\n");
     printf("\n");
     printf("1. O jogador cadastra duas cartas.\n");
     printf("2. O jogador escolhe dois atributos a serem comparados.\n");
